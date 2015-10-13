@@ -107,4 +107,15 @@ public class MainActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
+
+    /**
+     * Remove all peers and clear all fields. This is called on
+     * BroadcastReceiver receiving a state change event.
+     */
+    public void resetData() {
+        DeviceListFragment listFragment = (DeviceListFragment) getFragmentManager().findFragmentById(R.id.frag_list);
+        if (listFragment != null) {
+            listFragment.clearPeers();
+        }
+    }
 }

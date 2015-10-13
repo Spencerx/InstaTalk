@@ -25,7 +25,7 @@ public class DeviceListAdapter extends ArrayAdapter<WifiP2pDevice>{
         items = objects;
     }
 
-    private static String getDeviceStatus(int deviceStatus) {
+    public static String getDeviceStatus(int deviceStatus) {
         Log.d(MainActivity.TAG, "Peer status :" + deviceStatus);
         switch (deviceStatus) {
             case WifiP2pDevice.AVAILABLE:
