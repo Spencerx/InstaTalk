@@ -4,6 +4,8 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.net.wifi.p2p.WifiP2pConfig;
+import android.net.wifi.p2p.WifiP2pDevice;
 import android.net.wifi.p2p.WifiP2pManager;
 import android.net.wifi.p2p.WifiP2pManager.Channel;
 import android.provider.Settings;
@@ -13,7 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements DeviceListFragment.DeviceActionListener{
 
     public static final String TAG = "MainActivity";
     WifiP2pManager mManager;
@@ -117,5 +119,26 @@ public class MainActivity extends AppCompatActivity {
         if (listFragment != null) {
             listFragment.clearPeers();
         }
+    }
+
+    @Override
+    public void showDetails(WifiP2pDevice device) {
+        DeviceDetailFragment fragment = (DeviceDetailFragment) getFragmentManager().findFragmentById(R.id.frag_detail);
+        fragment.showDetails(device);
+    }
+
+    @Override
+    public void connect(WifiP2pConfig config) {
+
+    }
+
+    @Override
+    public void disconnect() {
+
+    }
+
+    @Override
+    public void cancelDisconnect() {
+
     }
 }
