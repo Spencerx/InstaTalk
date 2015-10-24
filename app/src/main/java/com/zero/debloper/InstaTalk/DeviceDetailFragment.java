@@ -27,6 +27,7 @@ import com.zero.debloper.InstaTalk.DeviceListFragment.DeviceActionListener;
  * i.e. setting up network connection and transferring data.
  */
 public class DeviceDetailFragment extends Fragment implements ConnectionInfoListener{
+    private final String TAG = "DeviceDetailFragment";
     protected static final int CHOOSE_FILE_RESULT_CODE = 20;
     private View mContentView = null;
     private WifiP2pDevice device;
@@ -134,6 +135,7 @@ public class DeviceDetailFragment extends Fragment implements ConnectionInfoList
      * @param device the device to be displayed
      */
     public void showDetails(WifiP2pDevice device) {
+        Log.v(TAG, "showDetails");
         this.device = device;
         this.getView().setVisibility(View.VISIBLE);
         TextView view = (TextView) mContentView.findViewById(R.id.device_address);

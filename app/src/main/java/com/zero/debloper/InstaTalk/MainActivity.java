@@ -11,6 +11,7 @@ import android.net.wifi.p2p.WifiP2pManager.Channel;
 import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -123,6 +124,7 @@ public class MainActivity extends AppCompatActivity implements DeviceListFragmen
 
     @Override
     public void showDetails(WifiP2pDevice device) {
+        Log.v(TAG, "showDetails");
         DeviceDetailFragment fragment = (DeviceDetailFragment) getFragmentManager().findFragmentById(R.id.frag_detail);
         fragment.showDetails(device);
     }
